@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0"
   },
   "name": "paytm-clone",
   "version": "1.0.0",
   "description": "PayTM - Clone",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -5,7 +5,7 @@ const Routes = require("./Routes");
 
 app.use(express.json());
 
-app.use("/", Routes);
+app.use("/api/v1", Routes);
 
 connectDB();
 

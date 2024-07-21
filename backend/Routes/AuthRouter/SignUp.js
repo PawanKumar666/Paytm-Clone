@@ -1,6 +1,7 @@
 const {Router} = require("express");
 const zod = require("zod");
 const User = require("../../schema/UserSchema");
+const Accounts = require("../../schema/AccountsSchema");
 
 const router = Router();
 
@@ -22,7 +23,10 @@ router.post("/", async (req, res) => {
     }
     const newUser = new User(user.data);
     await newUser.save();
-    res.status(201).json({ message: "User created" });
+
+    const createdUser = await User.findOne({ email: newUser.email });
+    const createdAccount = await Accounts.create({ user: createdUser._id, balance: 0 });
+    res.status(201).json({ message: "User created and account created with zero balance" });
 });
 
 module.exports = router;

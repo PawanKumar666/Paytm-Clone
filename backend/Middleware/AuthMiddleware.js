@@ -10,7 +10,7 @@ async function AuthMiddleware(req, res, next) {
     console.log(decoded);
     const user = await User.findOne({ email: decoded.email, password: decoded.password });
     if (!user) return res.status(401).json({ message: "User not found" });
-    req.email = user.email;
+    req.userId = user._id;
   } catch (err) {
     return res.status(401).json({ message: "Invalid token" });
   }

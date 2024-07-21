@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const zod = require("zod");
-const User = require("../schema/UserSchema");
+const User = require("../../schema/UserSchema");
 const router = Router();
 
 const UserSignInSchema = zod.object({
@@ -8,7 +8,7 @@ const UserSignInSchema = zod.object({
     password: zod.string().min(8),
 });
 
-router.post("/signin", async (req, res) => {
+router.post("/", async (req, res) => {
     const signInUser = UserSignInSchema.safeParse(req.body);
     if (!signInUser.success) {
         return res.status(400).json({ error: "Invalid request" });

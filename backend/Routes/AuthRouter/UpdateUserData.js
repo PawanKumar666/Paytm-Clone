@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const User = require("../schema/UserSchema");
+const User = require("../../schema/UserSchema");
 const zod = require("zod");
 const router = Router();
 
@@ -10,7 +10,7 @@ const UserMetaDataSchema = zod.object({
     password: zod.string().min(8),
 });
 
-router.post("/update", async (req, res) => {
+router.post("/", async (req, res) => {
     const UserUpdateData = UserMetaDataSchema.safeParse(req.body);
     if (!UserUpdateData.success) {
         return res.status(400).json({ error: "Invalid request" });

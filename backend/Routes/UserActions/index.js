@@ -1,5 +1,4 @@
 const express = require("express");
-const UserMiddleware = require("../../Middleware/UserMiddleware");
 const router = express.Router();
 
 /*
@@ -9,6 +8,7 @@ This is the main router for the user actions
 The final routes will be - /api/v1/user/get-user-details
 */
 
-router.use("/get-user-details", UserMiddleware, require("./GetDetailsOfUser"));
+router.use("/get-details", require("./GetDetailsOfUser"));
+router.use("/update-details", require("./UpdateUserData"));
 
 module.exports = router;

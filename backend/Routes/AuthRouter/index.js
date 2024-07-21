@@ -10,6 +10,6 @@ The final routes will be - /api/v1/auth/signup, /api/v1/auth/signin, /api/v1/aut
 
 router.use("/signup", require("./SignUp"));
 router.use("/signin", require("./SignIn"));
-router.use("/update", require("./UpdateUserData"));
+router.use("/update", require("../UserActions/UpdateUserData"));
 
 module.exports = router;

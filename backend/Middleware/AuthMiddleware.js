@@ -2,7 +2,7 @@ const User = require("../schema/UserSchema");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
 
-async function UserMiddleware(req, res, next) {
+async function AuthMiddleware(req, res, next) {
   const token = req.headers?.authorization;
   if (!token) return res.status(401).json({ message: "Token not found" });
   try {
@@ -16,4 +16,4 @@ async function UserMiddleware(req, res, next) {
   next();
 }
 
-module.exports = UserMiddleware;
+module.exports = AuthMiddleware;

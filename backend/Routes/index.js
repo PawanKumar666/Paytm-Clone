@@ -1,12 +1,13 @@
 const express = require("express");
-const app = express();
+const router = express.Router();
 
 /*
 This is the core router for all the routes
 */
 
-app.use(express.json());
+router.use(express.json());
 
-app.use("/auth", require("./AuthRouter"));
+router.use("/auth", require("./AuthRouter"));
+router.use("/user", require("./UserActions"));
 
-module.exports = app;
+module.exports = router;

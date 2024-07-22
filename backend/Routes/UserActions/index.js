@@ -10,7 +10,6 @@ The final routes will be - /api/v1/user/get-user-details
 
 router.use("/get-details", require("./GetDetailsOfUser"));
 router.use("/update-details", require("./UpdateUserData"));
-router.use("/search-user", require("./SearchUser"));
 router.use("/transact-amount", require("./TransactAmount"));
 router.use("/add-money", require("./AddMoneyToAccount"));
 

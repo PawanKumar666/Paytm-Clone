@@ -1,7 +1,10 @@
 import React from "react";
+import { useRecoilValue } from "recoil";
+import { token } from "../../Atoms/AuthAtoms";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  const authToken = useRecoilValue(token);
+  return <div>{authToken}</div>;
 };
 
 export default Dashboard;

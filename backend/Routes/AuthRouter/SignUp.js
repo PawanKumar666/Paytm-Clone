@@ -2,6 +2,8 @@ const {Router} = require("express");
 const zod = require("zod");
 const User = require("../../schema/UserSchema");
 const Accounts = require("../../schema/AccountsSchema");
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = require("../../config");
 
 const router = Router();
 
@@ -25,8 +27,10 @@ router.post("/", async (req, res) => {
     await newUser.save();
 
     const createdUser = await User.findOne({ email: newUser.email });
-    const createdAccount = await Accounts.create({ user: createdUser._id, balance: 0 });
-    res.status(201).json({ message: "User created and account created with zero balance" });
+    await Accounts.create({ user: createdUser._id, balance: 0 });
+
+    const token = jwt.sign({ id: user._id, email: user.email, password: user.password }, JWT_SECRET, { expiresIn: "1h" });
+    res.status(201).json({ message: "User created and account created with zero balance", token });
 });
 
 module.exports = router;

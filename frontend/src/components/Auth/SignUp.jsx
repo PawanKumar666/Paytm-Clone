@@ -12,7 +12,7 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const setToken = useSetRecoilState(token);
+  // const setToken = useSetRecoilState(token);
   const [error, setError] = useState("");
   return (
     <CenteredModal>
@@ -32,7 +32,8 @@ const SignUp = () => {
                             email,
                             password
                         });
-                        setToken(response.data.token);
+                        localStorage.setItem("token", response?.data?.token);
+                        // setToken(response.data.token);
                         navigate("/dashboard");
                     }
                     catch(error){

@@ -35,6 +35,7 @@ const Dashboard = () => {
                 <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={() => navigate("/transfer-money")}>Transfer Money</button>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={() => navigate("/add-money-to-self")}>Add Money to self</button>
             </div>
+            {error && <p className="text-red-500">{error}</p>}
         </div>
     </CenteredModal>
   )

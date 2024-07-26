@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {BASE_URL, v1} from "../../Utils/globals";
 import axios from "axios";
 import { useSetRecoilState } from "recoil";
-import { token } from "../../Atoms/AuthAtoms";
 import { useNavigate } from "react-router-dom";
 import CenteredModal from "../Wrappers/CenteredModal";
 

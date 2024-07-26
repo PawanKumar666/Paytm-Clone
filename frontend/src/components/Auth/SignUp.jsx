@@ -4,7 +4,6 @@ import axios from "axios";
 import { BASE_URL, v1 } from "../../Utils/globals";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { token } from "../../Atoms/AuthAtoms";
 
 const SignUp = () => {
   const navigate = useNavigate();

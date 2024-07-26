@@ -2,8 +2,6 @@ import React, {useState} from "react";
 import CenteredModal from "../Wrappers/CenteredModal";
 import axios from "axios";
 import { BASE_URL, v1 } from "../../Utils/globals";
-// import { useRecoilValue } from "recoil";
-import { token } from "../../Atoms/AuthAtoms";
 
 const AddMoneyToSelf = () => {
   const [amount, setAmount] = useState(0);

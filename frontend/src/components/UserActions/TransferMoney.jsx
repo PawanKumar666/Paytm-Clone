@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import CenteredModal from "../Wrappers/CenteredModal";
 import axios from "axios";
 import { BASE_URL, v1 } from "../../Utils/globals";
+import Button from "../Core/Button";
 
 const TransferMoney = () => {
     const [amount, setAmount] = useState(0);

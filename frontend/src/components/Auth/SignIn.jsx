@@ -25,7 +25,7 @@ const SignIn = () => {
                         email,
                         password
                     });
-                    console.log("Response - ", response.data)
+                    console.log("Response - ", response.data);
                     localStorage.setItem("token", response?.data?.token);
                     navigate("/dashboard");
                 }

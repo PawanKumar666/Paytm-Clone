@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  useEffect(async () => {
+  async function fetchUserDetails(){
     try {
     const response = await axios.get(`${BASE_URL}${v1}/user/get-details`, {
       headers: {
@@ -25,7 +25,10 @@ const Dashboard = () => {
     setError("Error fetching user details");
     navigate("/signin");
   }
-  }, [])
+  }
+  useEffect(() => {
+    fetchUserDetails();
+  }, [email]);
   return (
     <CenteredModal>
         <div className="flex flex-col items-center justify-center">

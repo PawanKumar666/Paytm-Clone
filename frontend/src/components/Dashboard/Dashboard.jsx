@@ -3,6 +3,7 @@ import CenteredModal from "../Wrappers/CenteredModal";
 import axios from "axios";
 import { BASE_URL, v1 } from "../../Utils/globals";
 import { useNavigate } from "react-router-dom";
+import Button from "../Core/Button"
 
 const Dashboard = () => {
   const [email, setEmail] = useState(null);
@@ -32,8 +33,8 @@ const Dashboard = () => {
             <p className="text-sm text-gray-500">Email - {email}</p>
             <p className="text-sm text-gray-500">Balance: {balance}</p>
             <div className="flex flex-row items-center justify-center">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={() => navigate("/transfer-money")}>Transfer Money</button>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={() => navigate("/add-money-to-self")}>Add Money to self</button>
+                <Button title="Transfer Money" onClick={() => navigate("/transfer-money")} />
+                <Button title="Add Money to self" onClick={() => navigate("/add-money-to-self")} />
             </div>
             {error && <p className="text-red-500">{error}</p>}
         </div>

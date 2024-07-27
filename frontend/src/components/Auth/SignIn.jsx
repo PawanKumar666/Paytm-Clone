@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {BASE_URL, v1} from "../../Utils/globals";
 import axios from "axios";
-import { useSetRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 import CenteredModal from "../Wrappers/CenteredModal";
+import Button from "../Core/Button";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -19,20 +19,20 @@ const SignIn = () => {
         <form className="flex flex-col items-center justify-center">
             <input type="email" placeholder="Email" onChange={(e) => {setEmail(e.target.value)}}/>
             <input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
-            <button type="button" className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4" onClick={async () => {
+            <Button title="Sign In" onClick={async () => {
                 try{
                     const response = await axios.post(`${BASE_URL}${v1}/auth/signin`, {
                         email,
                         password
                     });
-                    // setToken(response?.data?.token);
+                    console.log("Response - ", response.data)
                     localStorage.setItem("token", response?.data?.token);
                     navigate("/dashboard");
                 }
                 catch(error){
                     setError(error.response.data.error);
                 }
-            }}>Sign In</button>
+            }}/>
             {error && <p className="text-red-500 text-xl my-4">{error}</p>}
         </form>
       </div>

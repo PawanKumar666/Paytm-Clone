@@ -21,7 +21,7 @@ const TransferMoney = () => {
                     <input className="border-2 border-gray-3000 rounded-lg p-2" type="text" placeholder="Recipient" onChange={(e) => {
                         setUserId(e.target.value);
                     }}/>
-                    <button type="button" className="bg-blue-500 text-white p-2 rounded-lg" onClick={async () => {
+                    <Button title="Transfer" onClick={async () => {
                         if(amount > 0 && userId !== ""){
                             try{
                                 const response = await axios.post(`${BASE_URL}${v1}/user/transact-amount`, {
@@ -37,7 +37,7 @@ const TransferMoney = () => {
                                 setError(error.response.data.message);
                             }
                         }
-                    }}>Transfer</button>
+                    }}/>
                 </form>
                 {error && <p className="text-red-500">{error}</p>}
             </div>

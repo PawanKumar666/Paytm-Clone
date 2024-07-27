@@ -3,7 +3,7 @@ import CenteredModal from "../Wrappers/CenteredModal";
 import axios from "axios";
 import { BASE_URL, v1 } from "../../Utils/globals";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import Button from "../Core/Button"
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -11,7 +11,6 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const setToken = useSetRecoilState(token);
   const [error, setError] = useState("");
   return (
     <CenteredModal>
@@ -23,7 +22,7 @@ const SignUp = () => {
                 <input type="text" placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}/>
                 <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                 <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-                <button type="button" onClick={async() => {
+                <Button title="Sign Up" onClick={async() => {
                     try{
                         const response = await axios.post(`${BASE_URL}${v1}/auth/signup`, {
                             firstName,
@@ -38,7 +37,7 @@ const SignUp = () => {
                     catch(error){
                         setError(error.response.data.error);
                     }
-                }}>Sign Up</button>
+                }}/>
                 {error && <p className="text-red-500">{error}</p>}
             </form>
         </div>

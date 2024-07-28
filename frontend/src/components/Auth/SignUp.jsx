@@ -32,7 +32,6 @@ const SignUp = () => {
                             password
                         });
                         localStorage.setItem("token", response?.data?.token);
-                        // setToken(response.data.token);
                         navigate("/dashboard");
                     }
                     catch(error){

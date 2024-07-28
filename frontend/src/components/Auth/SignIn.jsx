@@ -10,7 +10,6 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const setToken = useSetRecoilState(token);
   const [error, setError] = useState("");
   return (
     <CenteredModal>

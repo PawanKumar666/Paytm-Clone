@@ -3,6 +3,8 @@ import CenteredModal from "../Wrappers/CenteredModal";
 import axios from "axios";
 import { BASE_URL, v1 } from "../../Utils/globals";
 import Button from "../Core/Button";
+import Input from "../Core/Input";
+import TopBar from "../Core/TopBar";
 
 const TransferMoney = () => {
     const [amount, setAmount] = useState(0);
@@ -12,14 +14,16 @@ const TransferMoney = () => {
         setError("");
     }, []);
     return (
+        <>
+        <TopBar />
         <CenteredModal>
             <div className="flex flex-col gap-4 bg-white p-4 rounded-lg">
                 <h1 className="text-2xl font-bold">Transfer Money</h1>
                 <form>
-                    <input className="border-2 border-gray-3000 rounded-lg p-2" type="number" placeholder="Amount" onChange={(e) => {
+                    <Input type="number" placeholder="Amount" onChange={(e) => {
                         setAmount(e.target.value);
                     }}/>
-                    <input className="border-2 border-gray-3000 rounded-lg p-2" type="text" placeholder="Recipient" onChange={(e) => {
+                    <Input type="text" placeholder="Recipient" onChange={(e) => {
                         setUserId(e.target.value);
                     }}/>
                     <Button title="Transfer" onClick={async () => {
@@ -43,6 +47,7 @@ const TransferMoney = () => {
                 {error && <p className="text-red-500">{error}</p>}
             </div>
         </CenteredModal>
+        </>
     );
 };
 

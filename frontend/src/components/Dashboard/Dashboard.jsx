@@ -4,6 +4,7 @@ import axios from "axios";
 import { BASE_URL, v1 } from "../../Utils/globals";
 import { useNavigate } from "react-router-dom";
 import Button from "../Core/Button"
+import TopBar from "../Core/TopBar";
 
 const Dashboard = () => {
   const [email, setEmail] = useState(null);
@@ -30,6 +31,8 @@ const Dashboard = () => {
     fetchUserDetails();
   }, [email]);
   return (
+    <>
+    <TopBar />
     <CenteredModal>
         <div className="flex flex-col items-center justify-center">
             <h1 className="text-2xl font-bold">Welcome - {name}</h1>
@@ -42,6 +45,7 @@ const Dashboard = () => {
             {error && <p className="text-red-500">{error}</p>}
         </div>
     </CenteredModal>
+    </>
   )
 };
 

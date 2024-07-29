@@ -27,7 +27,6 @@ const AddMoneyToSelf = () => {
                                 Authorization: `${localStorage.getItem("token")}`
                             }
                         });
-                        console.log(response);
                     }
                     catch(error){
                         setError(error.response.data.error);

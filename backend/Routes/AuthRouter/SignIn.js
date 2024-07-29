@@ -11,13 +11,11 @@ const UserSignInSchema = zod.object({
 });
 
 router.post("/", async (req, res) => {
-    console.log("SIGN IN REQUEST", req.body);
     const signInUser = UserSignInSchema.safeParse(req.body);
     if (!signInUser.success) {
         return res.status(400).json({ error: "Invalid request" });
     }
     const user = await User.findOne({ email: signInUser.data.email, password: signInUser.data.password });
-    console.log("USER", user);
     if (!user) {
         return res.status(400).json({ error: "User not found" });
     }

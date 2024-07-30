@@ -20,7 +20,7 @@ const AddMoneyToSelf = () => {
                 <Input type="number" placeholder="Amount" onChange={(e) => setAmount(e.target.value)}/>
                 <Button title="Add" onClick={async () => {
                     try{
-                        const response = await axios.post(`${BASE_URL}${v1}/user/add-money`, {
+                        await axios.post(`${BASE_URL}${v1}/user/add-money`, {
                             amount : Number(amount),
                         }, {
                             headers: {

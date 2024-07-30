@@ -29,7 +29,7 @@ const TransferMoney = () => {
                     <Button title="Transfer" onClick={async () => {
                         if(amount > 0 && userId !== ""){
                             try{
-                                const response = await axios.post(`${BASE_URL}${v1}/user/transact-amount`, {
+                                await axios.post(`${BASE_URL}${v1}/user/transact-amount`, {
                                     amount: Number(amount),
                                     userId: userId
                                 }, {

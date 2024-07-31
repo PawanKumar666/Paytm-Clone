@@ -9,7 +9,7 @@ export default function TopBar(){
         <div className="flex justify-between items-center p-4">
             <h2 className="text-2xl font-bold">PawTm App!</h2>
             <Button title="Sign Out" onClick={() => {
-                localStorage.removeItem("token");
+                localStorage.removeItem("pawtm_token");
                 axios.post(`${BASE_URL}${v1}/auth/signout`);
                 navigate("/signin");
             }}/>

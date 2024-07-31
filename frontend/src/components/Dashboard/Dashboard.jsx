@@ -16,7 +16,7 @@ const Dashboard = () => {
     try {
     const response = await axios.get(`${BASE_URL}${v1}/user/get-details`, {
       headers: {
-        Authorization: `${localStorage.getItem("token")}`
+        Authorization: `${localStorage.getItem("pawtm_token")}`
       }
     });
     setEmail(response.data.email);

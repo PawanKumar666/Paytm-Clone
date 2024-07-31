@@ -24,7 +24,7 @@ const AddMoneyToSelf = () => {
                             amount : Number(amount),
                         }, {
                             headers: {
-                                Authorization: `${localStorage.getItem("token")}`
+                                Authorization: `${localStorage.getItem("pawtm_token")}`
                             }
                         });
                     }

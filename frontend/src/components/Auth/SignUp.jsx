@@ -31,7 +31,7 @@ const SignUp = () => {
                             email,
                             password
                         });
-                        localStorage.setItem("token", response?.data?.token);
+                        localStorage.setItem("pawtm_token", response?.data?.token);
                         navigate("/dashboard");
                     }
                     catch(error){

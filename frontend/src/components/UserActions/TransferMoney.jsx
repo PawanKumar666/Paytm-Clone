@@ -34,7 +34,7 @@ const TransferMoney = () => {
                                     userId: userId
                                 }, {
                                     headers: {
-                                        Authorization: `${localStorage.getItem("token")}`
+                                        Authorization: `${localStorage.getItem("pawtm_token")}`
                                     }
                                 });
                             }

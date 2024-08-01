@@ -6,6 +6,7 @@ import Button from "../Core/Button";
 import Input from "../Core/Input";
 import TopBar from "../Core/TopBar";
 
+// TODO: Add a dropdown to select the recipient
 const TransferMoney = () => {
     const [amount, setAmount] = useState(0);
     const [userId, setUserId] = useState("");

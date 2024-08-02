@@ -144,3 +144,6 @@ To set up the project, follow these steps:
 7. Open the frontend in your preferred web browser.
 
 Note: Make sure to replace the placeholders in the `config.js` file with your actual MongoDB connection details and JWT secret.
+
+
+THIS IS STILL OPEN, PARTICULARLY COMPONENTS ARE NOT STYLED CLEAN.
